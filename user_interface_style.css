@@ -1,0 +1,95 @@
+body{ 
+	font-family: Nunito; 
+}
+#topbar{
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+    background-color: rgba(55, 216, 184, 1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: right;
+    height: 130px;
+}
+.link{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    margin-right: 70px;
+    position: relative;
+    top: 50px;
+}
+.link:hover{
+    color: aliceblue;
+}
+.yellow{
+    background-color: rgba(255, 242, 191, 1);
+    inline-size: 500px;
+    height: 40px;
+    position: relative;
+    left: 50px;
+    top: -10px;
+    /* margin-left: 50px; */
+    text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
+}
+p{
+    margin-right: 20px;
+    position: relative;
+    top: 10px;
+}
+#perfil{
+    position: absolute;
+    top: 75px;
+    left: 60px;
+    z-index: 1;
+    width: 120px;
+    height: auto;
+    border-radius: 50%;
+}
+main{
+    display: grid;
+    grid-template-columns: 2fr 0.01fr 3fr 1fr ;
+}
+#his{
+    margin-top: 40px;
+}
+.proce{
+    background-color: lightgrey;
+    border-radius: 20px;
+    font-size: 25px;
+    padding:7px;
+    position: relative;
+    left: 100px;
+    text-align: center;
+    inline-size: 200px;
+    margin-top: 60px;
+}
+#registtos{
+    height: 600px;
+    background-color: darkgray;
+    border-radius: 10px;
+    inline-size: auto;
+    overflow: auto;
+    margin: 20px ;
+    margin-top: 60px;
+}
+.divisor{
+    margin-top: 140px;
+    border-left:2px solid #001;
+    height: 700px;
+    opacity: 80%;
+}
+#inf{
+    background-color: darkgray;
+}
+#img{
+    margin-inline: 30px;
+    margin-top: 60px;
+    width: 229px;
+    height: 665px;
+    object-fit: cover;
+    opacity: 0.88;
+    border-radius: 20px;
+    box-shadow: 2px solid 5px black;
+}
