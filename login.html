@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tela de Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-color: #37D8B8;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .main-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 900px;
+      object-fit: cover;
+    }
+
+    .right-panel {
+      position: absolute;
+      right: 200px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .logo {
+      width: 450px;
+      height: auto;
+    }
+
+    .cpf-input {
+      padding: 12px 16px;
+      width: 250px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .login-button {
+      padding: 12px 32px;
+      background-color: white;
+      border: none;
+      border-radius: 128px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .voltar {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .voltar img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Imagem grande (background) -->
+  <img src="image2.png" alt="Imagem de fundo" class="main-image" />
+
+  <!-- Painel direito com logo, input, botão e voltar -->
+  <div class="right-panel">
+    <img src="image.png" alt="Logo" class="logo" />
+
+    <input type="text" placeholder="Digite seu CPF" class="cpf-input" />
+
+    <button class="login-button">Login</button>
+
+    <div class="voltar">
+      <img src="icon1.png" alt="Ícone voltar" />
+      <span>Voltar</span>
+    </div>
+  </div>
+
+</body>
+</html>
