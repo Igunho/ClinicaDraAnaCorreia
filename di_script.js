@@ -25,3 +25,37 @@ function selecionarPaciente(pacienteSelecionado) {
   pacienteInfo.nome.textContent = pacienteSelecionado.children[1].firstElementChild.textContent
   pacienteInfo.telefone.textContent = pacienteSelecionado.children[1].children[2].textContent
 }
+
+const lista = document.getElementById("lista")
+const itens = document.querySelectorAll(".item")
+const historico = document.getElementById("historico")
+let listaItens = []
+let historicoItens = []
+
+//Inicia uma pesquisa
+function iniciarPesquisa() {
+  historico.hidden = true
+
+  for(let i = 0; i < itens.length; i++) {
+    if(itens[i].parentElement.id == "lista") {
+      listaItens[i] = itens[i]
+    } else if(itens[i].parentElement.id == "historico") {
+      historicoItens[i] = itens[i]
+    }
+
+    itens[i].remove()
+    console.log(listaItens[i])
+  }
+}
+
+function encerrarPesquisa() {
+  historico.hidden = false
+
+  for(let i = 0; i < listaItens.length; i++) {
+    lista.appendChild(listaItens[i])
+  }
+
+  for(let i = 0; i < historicoItens.length; i++) {
+    historico.appendChild(historicoItens[i])
+  }
+}
