@@ -10,10 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 </head>
-<body onload="atualizarHorario()" class="nunito-sans-regular">
+<body onload="atualizarHorario()" class="nunito-sans-regular" style="overflow-x: hidden;">
     <nav class="topbar">
         <img src="imgs/logo-white-text.png" alt="Logo" style="justify-self: start;">
-        <a href="">Inicio</a>
+        <a href="index.html">Inicio</a>
         <p id="horario"></p>
     </nav>
 
@@ -21,46 +21,49 @@
         <section id="consultas">
             <div id="search">
                 <input type="text" placeholder="Pesquisar">
-                <img src="imgs/filter.png" alt="filtrar" style="width: 48px;">
-            </div> <br>
+                <img src="imgs/filter.png" alt="filtrar" style="width: 40px;">
+            </div>
 
             <div id="lista">
-                <div class="item"> 
+                <div class="item" id="ciclano-da-cunha" onclick="selecionarPaciente(this)"> 
                     <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png " alt="Imagem de Perfil" style="width: 60%;">
                     <div style="line-height: 20%;">
                         <h3>Ciclano da Cunha</h3>
                         <p style="font-weight: 300;">12/06/2025</p>
-                    </div>
+                        <p hidden>4002-8922</p>
+                    </div> 
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
                         <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png " alt="Concluir">
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir">
                         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" hidden>
                     </div>
                 </div>
-                <div class="item"> 
+                <div class="item" id="fulano-da-silva" onclick="selecionarPaciente(this)"> 
                     <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png " alt="Imagem de Perfil" style="width: 60%;">
                     <div style="line-height: 20%;">
                         <h3>Fulano da Silva</h3>
                         <p style="font-weight: 300;">15/06/2025</p>
+                        <p hidden>13 92156-2469</p>
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
                         <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png " alt="Concluir">
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir">
                         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" hidden>
                     </div>
                 </div>
-                <div class="item"> 
-                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png " alt="Imagem de Perfil" style="width: 60%;">
+                <div class="item" id="ciclana-ferreira" onclick="selecionarPaciente(this)"> 
+                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Imagem de Perfil" style="width: 60%;">
                     <div style="line-height: 20%;">
                         <h3>Ciclana Ferreira</h3>
                         <p style="font-weight: 300;">17/06/2025</p>
+                        <p hidden>13 90186-2139</p>
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
                         <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png " alt="Concluir">
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir">
                         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" hidden>
                     </div>
                 </div>
@@ -69,89 +72,102 @@
             <hr style="border: 2px solid #535353; margin-block: 16px;">
 
             <div id="historico">
-                <div class="item"> 
+                <h2>Histórico</h2>
+                <div class="item"id="alice-ciclana-da-conceicao" onclick="selecionarPaciente(this)"> 
                     <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png " alt="Imagem de Perfil" style="width: 60%;">
                     <div style="line-height: 20%;">
                         <h3>Alice Ciclana da Conceição</h3>
                         <p style="font-weight: 300;">04/06/2025</p>
+                        <p hidden>13 91910-1566</p>
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
                         <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png " alt="Concluir" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
                         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento">
                     </div>
                 </div>
-                <div class="item"> 
-                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png " alt="Imagem de Perfil" style="width: 60%;">
+                <div class="item" id="sicrano-oliveira" onclick="selecionarPaciente(this)"> 
+                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Imagem de Perfil" style="width: 60%;">
                     <div style="line-height: 20%;">
                         <h3>Sicrano Oliveira</h3>
                         <p style="font-weight: 300;">02/06/2025</p>
+                        <p hidden>13 97346-3741</p>
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
                         <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png " alt="Concluir" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
                         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento">
                     </div>
                 </div>
-                <div class="item"> 
-                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png " alt="Imagem de Perfil" style="width: 60%;">
+                <div class="item" id="sicrana-lima" onclick="selecionarPaciente(this)"> 
+                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Imagem de Perfil" style="width: 60%;">
                     <div style="line-height: 20%;">
                         <h3>Sicrana Lima</h3>
                         <p style="font-weight: 300;">17/06/2025</p>
+                        <p hidden>13 99875-2135</p>
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
                         <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png " alt="Concluir" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
                         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento">
                     </div>
                 </div>
-                <div class="item"> 
+                <div class="item" id="alice-beltrana-da-conceicao" onclick="selecionarPaciente(this)"> 
                     <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png " alt="Imagem de Perfil" style="width: 60%;">
                     <div style="line-height: 20%;">
                         <h3>Alice Beltrana da Conceição</h3>
                         <p style="font-weight: 300;">17/06/2025</p>
+                        <p hidden>11 94321-5636</p>
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
                         <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png " alt="Concluir" hidden>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento">
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Novo Agendamento">
                     </div>
                 </div>
-                <div class="item"> 
-                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png " alt="Imagem de Perfil" style="width: 60%;">
+                <div class="item" id="mario-fulano-mario" onclick="selecionarPaciente(this)"> 
+                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Imagem de Perfil" style="width: 60%;">
                     <div style="line-height: 20%;">
                         <h3>Mario Fulano Mario</h3>
                         <p style="font-weight: 300;">17/06/2025</p>
+                        <p hidden>13 98764-8239</p>
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
                         <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png " alt="Concluir" hidden>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento">
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Novo Agendamento">
                     </div>
                 </div>
-                <div class="item"> 
-                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png " alt="Imagem de Perfil" style="width: 60%;">
+                <div class="item" id="ciclano-da-cunha" onclick="selecionarPaciente(this)"> 
+                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Imagem de Perfil" style="width: 60%;">
                     <div style="line-height: 20%;">
                         <h3>Ciclano da Cunha</h3>
                         <p style="font-weight: 300;">17/06/2025</p>
+                        <p hidden>4002-8922</p>
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
                         <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png " alt="Concluir" hidden>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento">
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Novo Agendamento">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="informações">
-
+        <section id="paciente" hidden>
+            <div id="header">
+                <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="https://cdn-icons-png.flaticon.com/512/456/456212.png" style="grid-row: 1 / span 2;">
+                <h3 style="grid-row: 1 / span 1; grid-column: 2 / span 2;">Nome do Paciente</h3>
+                <p style="font-weight: 300; grid-row: 2 / span 1; justify-self: center">Telefone</p> 
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato" style="width: 5%; grid-row: 2 / span 1;" class="clickable"> <!-- Botão de contato -->
+                <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Editar" style="grid-row: 1 / span 2; width: 60;" class="clickable"> <!-- Editar informações -->
+            </div>
         </section>
     </main>
 
