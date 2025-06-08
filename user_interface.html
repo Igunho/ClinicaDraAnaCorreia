@@ -6,40 +6,129 @@
     <title>User interface</title>
     <link rel="stylesheet" href="user_interface_style.css" type="text/css" href="//fonts.googleapis.com/css?family=Nunito">
     <link rel="icon" href="imgs/icon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet"   />> -->
 </head>
-<body>
+<body class="font">
      <section id="toppage" class="font">
         <nav id="topbar">
+         <img src="imgs/logo-white-text.png">
           <a href="" class="link">Pagina inicial</a>
-          <a href="" class="link">Serviços</a>
+          <a href="servicos.html" class="link">Serviços</a>
+          <a href="SobreDoutora.html" class="link">Sobre</a>
          </nav>
-         <img src="https://i.pinimg.com/originals/7d/f4/82/7df4827e1a93ad938f08e38450dd2beb.jpg" id="perfil" alt="perfil">
-         <nav class="yellow"><p>Fulano de Tal, (13)2222-2222</p></nav>
+         <nav class="yellow"><h3>Fulano de Tal, (13)2222-2222</h3></nav>
      </section>
      
     <main>
        <section id="his">
-            <div class="proce">procedimentos</div>
+
             <nav id="registtos">
-               <div>
+
+               <div class="register" onclick="selecionar(this)">
+                  <h3><span hidden>Quarta Feira,</span>03/03/2025 13:10</h3>
+                  <p>Fulano de Tal</p>
+                  <p hidden>Ana Correia</p>
+                  <p hidden>Cirurgia de ciso</p>
+                  <p hidden>200.00</p>
+                  <p hidden>Cartão, Debito, Á vista</p>
+                  <hr>
+               </div>
+               
+               <div class="register" onclick="selecionar(this)">
+                  <h3><span hidden>Sexta Feira,</span> 22/02/2025 13:10</h3>
+                  <p>Ciclano De Tal</p>
+                  <p hidden>Ana Correia</p>
+                  <p hidden>Limpeza de Canal</p>
+                  <p hidden>80,00</p>
+                  <p hidden>Cartão, Debito, Á Vista</p>
+                  <hr>
+               </div>
+               
+               <div class="register" onclick="selecionar(this)">
+                  <h3><span hidden>Segunda Feira,</span> 15/02/2025 13:10</h3>
+                  <p>Fulano de Tal</p>
+                  <p hidden>doutora ana</p>
+                  <p hidden>cirurgia de ciso</p>
+                  <p hidden>200,00</p>
+                  <p hidden>cartao, Credito, Parcelado(3x)</p>
+                  <hr>
+               </div>
+               
+               <div class="register" onclick="selecionar(this)">
+                  <h3><span hidden>Terça Feira,</span> 03/03/2025 13:10</h3>
+                  <p>Fulano de Tal</p>
+                  <p hidden>Ana Correia</p>
+                  <p hidden>Checagem</p>
+                  <p hidden>60,00</p>
+                  <p hidden>Dinheiro, Á Vista</p>
+                  <hr>
+               </div>
+               
+               <div class="register" onclick="selecionar(this)">
+                  <h3><span hidden>Segunda Feira,</span>03/03/2025 13:10</h3>
+                  <p>Fulano de Tal</p>
+                  <p hidden>doutora ana</p>
+                  <p hidden>cirurgia de ciso</p>
+                  <p hidden>200.00</p>
+                  <p hidden>cartao, debito, a vista</p>
+                  <hr>
+               </div>
+               
+               <div class="register" onclick="selecionar(this)">
+                  <h3><span hidden>Sexta Feira,</span>03/03/2025 13:10</h3>
+                  <p>Fulano de Tal</p>
+                  <p hidden>doutora ana</p>
+                  <p hidden>cirurgia de ciso</p>
+                  <p hidden>200.00</p>
+                  <p hidden>cartao, debito, a vista</p>
+                  <hr>
+               </div>
+               <div class="register" onclick="selecionar(this)">
+                  <h3><span hidden>Quinta Feira,</span>03/03/2025 13:10</h3>
+                  <p>Fulano de Tal</p>
+                  <p hidden>doutora ana</p>
+                  <p hidden>cirurgia de ciso</p>
+                  <p hidden>200.00</p>
+                  <p hidden>cartao, debito, a vista</p>
+                  <hr>
+               </div>
+               <div class="register" onclick="selecionar(this)">
+                  <h3><span hidden>Sabádo Feira,</span>03/03/2025 13:10</h3>
+                  <p>Fulano de Tal</p>
+                  <p hidden>Ana</p>
+                  <p hidden>Cirurgia de ciso</p>
+                  <p hidden>200.00</p>
+                  <p hidden>Cartão, Debito, Á vista</p>
+                  <hr>
+               </div>
+               <div class="register" onclick="selecionar(this)">
+                  <h3><span hidden>Quinta Feira,</span>03/03/2025 13:10</h3>
+                  <p>Fulano de Tal</p>
+                  <p hidden>doutora ana</p>
+                  <p hidden>cirurgia de ciso</p>
+                  <p hidden>200.00</p>
+                  <p hidden>cartao, debito, a vista</p>
+                  <hr>
                </div>
             </nav>  
        </section>
 
-       <div class="divisor"></div> 
-
        <section id="inf">
-          <div class="proce">Informações</div>
-          <nav id="">
-
-          </nav>
+            <h1 class="vazio">Nenhum Registro Selecionado.</h1>
+            <img src="imgs/leaves.gif" class="vazio">
+            <p></p><hr hidden>
+            <div class="elements"><img src="imgs/user.png" class="icon" hidden><p></p></div> <hr hidden>
+            <div class="elements"><img src="imgs/mask.png" class="icon" hidden><p></p></div>  <hr hidden>
+            <div class="elements"><img src="imgs/check-up.png" class="icon" hidden><p></p></div> <hr hidden>
+            <div class="elements"><img src="imgs/dollar-symbol.png" class="icon" hidden><p></p></div> <hr hidden>
+            <div class="elements"><img src="imgs/credit-card.png" class="icon" hidden><p></p></div> <hr hidden>
        </section>
 
        <section id="img">
             <img src="https://img.freepik.com/fotos-gratis/grande-felicidade-de-mulher-bonita_329181-1147.jpg?semt=ais_hybrid&w=740" id="img">
        </section>
     </main>
-    
+    <script src="user_logic.js"></script>
 </body>
 </html>
