@@ -15,6 +15,7 @@
     align-items: center;
     justify-items: end;
     padding-inline: 1%;
+    padding-right: 3%;
     margin: -10px;
     & a { /* Âncoras */
         font-size: 24px;
@@ -131,5 +132,14 @@ input[type="text"] { /* Caixa de entrada para pesquisas */
     & #info {
         margin: 20px;
         padding: 10px;
+    }
+}
+#anamnese {
+    background-color: #cacaca;
+}
+
+@media screen and (max-height: 1000px) {
+    #consultas, #paciente {
+        height: 60%;
     }
 }

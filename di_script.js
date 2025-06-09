@@ -22,6 +22,7 @@ const pacienteInfo = {
   nascimento:document.getElementById("info").children[0],
   genero:document.getElementById("info").children[1],
   endereco:document.getElementById("info").children[2],
+  telefonePrimario:document.getElementById("info").children[3].children[0],
   telefoneSecundario:document.getElementById("info").children[3].children[1],
   email:document.getElementById("info").children[3].children[2],
   anamnese:document.getElementById("info").children[4],
@@ -29,16 +30,19 @@ const pacienteInfo = {
 
 //Altera as informações a direita com as do paciente selecionado
 function selecionarPaciente(pacienteSelecionado) {
+  console.log(pacienteInfo)
+
   pacienteInfo.container.hidden = false
   pacienteInfo.nome.textContent = pacienteSelecionado.children[1].firstElementChild.textContent
   pacienteInfo.telefone.textContent = pacienteSelecionado.children[1].lastElementChild.children[1].textContent
 
-  pacienteInfo.nascimento.textContent = pacienteInfo.nascimento.textContent + pacienteSelecionado.children[1].lastElementChild.children[0].textContent
-  pacienteInfo.genero.textContent = pacienteSelecionado.children[1].lastElementChild.children[2].textContent
-  pacienteInfo.endereco.textContent = pacienteSelecionado.children[1].lastElementChild.children[3].textContent
-  pacienteInfo.telefoneSecundario.textContent = pacienteSelecionado.children[1].lastElementChild.children[1].textContent
-  pacienteInfo.email.textContent = pacienteSelecionado.children[1].lastElementChild.children[4].textContent
-  pacienteInfo.anamnese.textContent = pacienteSelecionado.children[1].lastElementChild.children[5].textContent
+  pacienteInfo.nascimento.textContent = "Data de Nascimento: " + pacienteSelecionado.children[1].lastElementChild.children[0].textContent
+  pacienteInfo.genero.textContent = "Sexo: " + pacienteSelecionado.children[1].lastElementChild.children[3].textContent
+  pacienteInfo.endereco.textContent = "Endereço: " + pacienteSelecionado.children[1].lastElementChild.children[4].textContent
+  pacienteInfo.telefonePrimario.textContent = "Telefone Primário: " + pacienteSelecionado.children[1].lastElementChild.children[1].textContent
+  pacienteInfo.telefoneSecundario.textContent = "Telefone Secundário: " + pacienteSelecionado.children[1].lastElementChild.children[2].textContent
+  pacienteInfo.email.textContent = "Email: " + pacienteSelecionado.children[1].lastElementChild.children[5].textContent
+  pacienteInfo.anamnese.textContent = pacienteSelecionado.children[1].lastElementChild.children[6].textContent
 }
 
 //Declara objetos e variáveis que serão utilizadas recorrentemente
