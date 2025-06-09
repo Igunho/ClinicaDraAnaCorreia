@@ -31,23 +31,23 @@ main { /* Display grid na pagina */
     grid-template-columns: 1fr 1fr;
 }
 
-.clickable:hover, #search img:hover {
-        cursor: pointer;
-    }
+.clickable:hover, img:hover {
+    cursor: pointer;
+}
 
 #consultas { /* Container das consultas porvir e previas */
     background-color: #d9d9d9;
     padding: 10px;
     margin-block: 48px;
     margin-inline: 24px;
-    height: 680px;
+    height: 65%;
     overflow: scroll;
     overflow-x: hidden;
 }
 #search { /* Barra de pesquisa */
-    display: grid;
+    /* display: grid;
     grid-template-columns: 16fr 1fr;
-    column-gap: 48px;
+    column-gap: 48px; */
     background-color: #d9d9d9;
     padding-block: 10px;
     position: sticky;
@@ -57,7 +57,7 @@ input[type="text"] { /* Caixa de entrada para pesquisas */
     background-color: #e8e3e3;
     font-size: 20px;
     border: none;
-    width: 100%;
+    width: 99%;
     height: 40px;
 }
 .botoes-acao { /* Botões de ação */
@@ -97,7 +97,7 @@ input[type="text"] { /* Caixa de entrada para pesquisas */
     padding: 10px;
     margin-block: 48px;
     margin-inline: 24px;
-    height: 680px;
+    height: 65%;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -117,7 +117,6 @@ input[type="text"] { /* Caixa de entrada para pesquisas */
 #pdetalhes {
     margin: 26px;
     background-color: #aeaeae;
-    text-align: center;
     & button {
         font-weight: bold;
         width: 30%;
@@ -125,5 +124,12 @@ input[type="text"] { /* Caixa de entrada para pesquisas */
         border: 1px solid black;
         border-radius: 10px;
         margin: 10px;
+    }
+    & #pheader {
+        text-align: center;
+    }
+    & #info {
+        margin: 20px;
+        padding: 10px;
     }
 }

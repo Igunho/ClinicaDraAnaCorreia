@@ -1,4 +1,5 @@
-function atualizarHorario() { // Atualiza o horário a cada um segundo, a funcão é inicializada ao carregar o corpo do página
+//Atualiza o horário a cada um segundo, a funcão é inicializada ao carregar o corpo do página
+function atualizarHorario() { 
     const exibirHora = document.getElementById("horario")
     let horario = new Date()
 
@@ -6,7 +7,8 @@ function atualizarHorario() { // Atualiza o horário a cada um segundo, a funcã
     setTimeout(atualizarHorario, 1000)
 }
 
-function adicionarZero(tempo) { //Verifica se uma das unidades de tempo enviada pela funcão atualizarHorario é menor que dez, caso seja adiciona um zero a esquerda
+//Verifica se uma das unidades de tempo enviada pela funcão atualizarHorario é menor que dez, caso seja adiciona um zero a esquerda
+function adicionarZero(tempo) { 
   if (tempo < 10) {tempo = "0" + tempo};
   return tempo;
 }
@@ -16,23 +18,37 @@ const pacienteInfo = {
   container:document.getElementById("paciente"),
   foto:document.getElementById("paciente").firstElementChild.children[0],
   nome:document.getElementById("paciente").firstElementChild.children[1],
-  telefone:document.getElementById("paciente").firstElementChild.children[2]
+  telefone:document.getElementById("paciente").firstElementChild.children[2],
+  nascimento:document.getElementById("info").children[0],
+  genero:document.getElementById("info").children[1],
+  endereco:document.getElementById("info").children[2],
+  telefoneSecundario:document.getElementById("info").children[3].children[1],
+  email:document.getElementById("info").children[3].children[2],
+  anamnese:document.getElementById("info").children[4],
 }
 
 //Altera as informações a direita com as do paciente selecionado
 function selecionarPaciente(pacienteSelecionado) {
   pacienteInfo.container.hidden = false
   pacienteInfo.nome.textContent = pacienteSelecionado.children[1].firstElementChild.textContent
-  pacienteInfo.telefone.textContent = pacienteSelecionado.children[1].children[2].textContent
+  pacienteInfo.telefone.textContent = pacienteSelecionado.children[1].lastElementChild.children[1].textContent
+
+  pacienteInfo.nascimento.textContent = pacienteInfo.nascimento.textContent + pacienteSelecionado.children[1].lastElementChild.children[0].textContent
+  pacienteInfo.genero.textContent = pacienteSelecionado.children[1].lastElementChild.children[2].textContent
+  pacienteInfo.endereco.textContent = pacienteSelecionado.children[1].lastElementChild.children[3].textContent
+  pacienteInfo.telefoneSecundario.textContent = pacienteSelecionado.children[1].lastElementChild.children[1].textContent
+  pacienteInfo.email.textContent = pacienteSelecionado.children[1].lastElementChild.children[4].textContent
+  pacienteInfo.anamnese.textContent = pacienteSelecionado.children[1].lastElementChild.children[5].textContent
 }
 
+//Declara objetos e variáveis que serão utilizadas recorrentemente
 const lista = document.getElementById("lista")
 const itens = document.querySelectorAll(".item")
 const historico = document.getElementById("historico")
 let listaItens = []
 let historicoItens = []
 
-//Inicia uma pesquisa
+//Inicia uma pesquisa - "Eliminando" todos os itens da lista
 function iniciarPesquisa() {
   historico.hidden = true
 
@@ -44,18 +60,39 @@ function iniciarPesquisa() {
     }
 
     itens[i].remove()
-    console.log(listaItens[i])
   }
 }
 
+//Encerra uma pesquisa - Retornando todos os itens a lista
 function encerrarPesquisa() {
-  historico.hidden = false
-
   for(let i = 0; i < listaItens.length; i++) {
     lista.appendChild(listaItens[i])
   }
 
-  for(let i = 0; i < historicoItens.length; i++) {
+  for(let i = 3; i < historicoItens.length; i++) {
     historico.appendChild(historicoItens[i])
   }
+
+  historico.hidden = false
+}
+
+//Realiza uma pesquisa
+function pesquisar(entrada) {
+  let listaAtual = [] //Cria uma lista para adicionar os resultados da pesquisa
+
+  if(entrada == "") {
+    encerrarPesquisa() //Encerra a pesquisa caso ela seja apagada
+  }
+
+  for(let i = 0; i < itens.length; i++) { 
+    if(listaAtual.includes(itens[i].id) == false) { //Verifica se o item atual da iteração já está sendo mostrado como resultado
+      if(itens[i].children[1].firstElementChild.textContent.toLowerCase() == entrada.toLowerCase()) {
+        //Caso exista um item com o mesmo nome da pesquisa ele será exibido na lista
+        lista.appendChild(itens[i])
+        listaAtual.push(itens[i].id)
+      }
+    }
+  }
+
+  console.log(listaAtual)
 }
