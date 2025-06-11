@@ -50,19 +50,23 @@ const historico = document.getElementById("historico")
 let listaItens = []
 let historicoItens = []
 
+let contadorPesquisa = 0
 //Inicia uma pesquisa - "Eliminando" todos os itens da lista e depois a realiza
 function pesquisar(entrada) {
   let listaAtual = [] //Cria uma lista para adicionar os resultados da pesquisa
   historico.hidden = true
-
-  for(let i = 0; i < itens.length; i++) {
-      if(itens[i].hasChildNodes == true && itens[i].parentElement.id == "lista") {
+  
+  while (contadorPesquisa < 1) {
+    for(let i = 0; i < itens.length; i++) {
+      if(itens[i].parentElement.id == "lista") {
         listaItens[i] = itens[i]
       } else if(itens[i].parentElement.id == "historico") {
         historicoItens[i] = itens[i]
+      } else { break }
+      
+      itens[i].remove() 
     }
-
-    itens[i].remove()
+    contadorPesquisa++
   }
 
   for(let i = 0; i < itens.length; i++) { 
@@ -90,7 +94,8 @@ function encerrarPesquisa() {
     historico.appendChild(historicoItens[i])
   }
 
-  historico.hidden = false
+  historico.hidden = false 
+  contadorPesquisa = 0
 }
 
 function selecionarAba(selecao) {
@@ -125,4 +130,12 @@ function selecionarAba(selecao) {
       alert("erro")
       break
   }
+}
+
+//Conclui um agendamento
+function concluir(paciente) {
+  console.log(paciente)
+  paciente.children[1].children[2].hidden = true
+  paciente.children[1].children[3].hidden = false
+  historico.insertBefore(paciente, historico.children[0])
 }
