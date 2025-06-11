@@ -20,7 +20,7 @@
     <main>
         <section id="consultas">
             <div id="search">
-                <input type="text" placeholder="Pesquisar" onfocusin="iniciarPesquisa()" onfocusout="encerrarPesquisa()" oninput="pesquisar(this.value)">
+                <input type="text" placeholder="Pesquisar" onfocusout="encerrarPesquisa()" onkeyup="pesquisar(this.value)">
                 <!-- <img src="imgs/filter.png" alt="filtrar" style="width: 40px;"> -->
             </div>
 
@@ -243,9 +243,9 @@
             </div>
             <div id="pdetalhes">
                 <div id="pheader">
-                    <button style="border: none; background-color: #cacaca; color: #aeaeae;">INFORMAÇÕES</button>
-                    <button class="clickable">TRATAMENTOS</button>
-                    <button class="clickable">ORÇAMENTO</button>
+                    <button class="clickable" id="selected" onclick="selecionarAba(this)">INFORMAÇÕES</button>
+                    <button class="clickable" onclick="selecionarAba(this)">TRATAMENTOS</button>
+                    <button class="clickable" onclick="selecionarAba(this)">ORÇAMENTO</button>
                 </div>
                 <div id="info">
                     <p>Data de Nascimento: </p>
@@ -260,6 +260,12 @@
 
                     Anamnese:
                     <textarea name="Anamnese" id="anamnese" rows="20" cols="100%" readonly></textarea>
+                </div>
+                <div id="tratamentos" hidden>
+                    está é a seção de tratamentos
+                </div>
+                <div id="orcamento" hidden>
+                    está é a seção de orçamento
                 </div>
             </div>
         </section>

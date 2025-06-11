@@ -117,7 +117,6 @@ input[type="text"] { /* Caixa de entrada para pesquisas */
 }
 #pdetalhes {
     margin: 26px;
-    background-color: #aeaeae;
     & button {
         font-weight: bold;
         width: 30%;
@@ -126,16 +125,23 @@ input[type="text"] { /* Caixa de entrada para pesquisas */
         border-radius: 10px;
         margin: 10px;
     }
+    & #selected {
+        border: none; 
+        background-color: #cacaca; 
+        color: #aeaeae;
+    }
     & #pheader {
         text-align: center;
     }
-    & #info {
+    & #info, #tratamentos, #orcamento {
+        background-color: #aeaeae;
         margin: 20px;
-        padding: 10px;
+        padding: 20px;
     }
 }
 #anamnese {
     background-color: #cacaca;
+    border: none;
 }
 
 @media screen and (max-height: 1000px) {

@@ -25,13 +25,11 @@ const pacienteInfo = {
   telefonePrimario:document.getElementById("info").children[3].children[0],
   telefoneSecundario:document.getElementById("info").children[3].children[1],
   email:document.getElementById("info").children[3].children[2],
-  anamnese:document.getElementById("info").children[4],
+  anamnese:document.getElementById("info").children[4]
 }
 
 //Altera as informações a direita com as do paciente selecionado
 function selecionarPaciente(pacienteSelecionado) {
-  console.log(pacienteInfo)
-
   pacienteInfo.container.hidden = false
   pacienteInfo.nome.textContent = pacienteSelecionado.children[1].firstElementChild.textContent
   pacienteInfo.telefone.textContent = pacienteSelecionado.children[1].lastElementChild.children[1].textContent
@@ -52,18 +50,33 @@ const historico = document.getElementById("historico")
 let listaItens = []
 let historicoItens = []
 
-//Inicia uma pesquisa - "Eliminando" todos os itens da lista
-function iniciarPesquisa() {
+//Inicia uma pesquisa - "Eliminando" todos os itens da lista e depois a realiza
+function pesquisar(entrada) {
+  let listaAtual = [] //Cria uma lista para adicionar os resultados da pesquisa
   historico.hidden = true
 
   for(let i = 0; i < itens.length; i++) {
-    if(itens[i].parentElement.id == "lista") {
-      listaItens[i] = itens[i]
-    } else if(itens[i].parentElement.id == "historico") {
-      historicoItens[i] = itens[i]
+      if(itens[i].hasChildNodes == true && itens[i].parentElement.id == "lista") {
+        listaItens[i] = itens[i]
+      } else if(itens[i].parentElement.id == "historico") {
+        historicoItens[i] = itens[i]
     }
 
     itens[i].remove()
+  }
+
+  for(let i = 0; i < itens.length; i++) { 
+    if(listaAtual.includes(itens[i].id) == false) { //Verifica se o item atual da iteração já está sendo mostrado como resultado
+      if(itens[i].children[1].firstElementChild.textContent.toLowerCase() == entrada.toLowerCase()) {
+        //Caso exista um item com o mesmo nome da pesquisa ele será exibido na lista
+        lista.appendChild(itens[i])
+        listaAtual.push(itens[i].id)
+      }
+    }
+  }
+
+  if(entrada == "") {
+    encerrarPesquisa() //Encerra a pesquisa caso ela seja apagada
   }
 }
 
@@ -80,23 +93,36 @@ function encerrarPesquisa() {
   historico.hidden = false
 }
 
-//Realiza uma pesquisa
-function pesquisar(entrada) {
-  let listaAtual = [] //Cria uma lista para adicionar os resultados da pesquisa
+function selecionarAba(selecao) {
+  const anterior = document.getElementById("selected")
+  const info = document.getElementById("info")
+  const tratamento = document.getElementById("tratamentos")
+  const orcamento = document.getElementById("orcamento")
 
-  if(entrada == "") {
-    encerrarPesquisa() //Encerra a pesquisa caso ela seja apagada
+  switch(selecao.textContent) {
+    case "INFORMAÇÕES":
+      selecao.id = "selected"
+      anterior.id = ""
+      tratamento.hidden = true
+      orcamento.hidden = true
+      info.hidden = false
+      break
+    case "TRATAMENTOS":
+      selecao.id = "selected"
+      anterior.id = ""
+      tratamento.hidden = false
+      orcamento.hidden = true
+      info.hidden = true
+      break
+    case "ORÇAMENTO":
+      selecao.id = "selected"
+      anterior.id = ""
+      tratamento.hidden = true
+      orcamento.hidden = false
+      info.hidden = true
+      break
+    default:
+      alert("erro")
+      break
   }
-
-  for(let i = 0; i < itens.length; i++) { 
-    if(listaAtual.includes(itens[i].id) == false) { //Verifica se o item atual da iteração já está sendo mostrado como resultado
-      if(itens[i].children[1].firstElementChild.textContent.toLowerCase() == entrada.toLowerCase()) {
-        //Caso exista um item com o mesmo nome da pesquisa ele será exibido na lista
-        lista.appendChild(itens[i])
-        listaAtual.push(itens[i].id)
-      }
-    }
-  }
-
-  console.log(listaAtual)
 }
