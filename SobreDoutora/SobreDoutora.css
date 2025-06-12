@@ -47,9 +47,13 @@
     }
     
     nav a {
+      text-decoration: none;
       color: white;
       font-weight: 300;
       font-size: 14px;
+    }
+      nav a:hover{
+      font-weight: 700;
     }
     .sobre {
       text-align: center;
