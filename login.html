@@ -82,28 +82,34 @@
       height: 20px;
       margin-right: 8px;
     }
+    a{
+      text-decoration: none;
+      color: white;
+    }
   </style>
 </head>
 <body>
 
   <!-- Imagem grande (background) -->
-  <img src="image10.png" alt="Imagem de fundo" class="main-image" />
+  <img src="imgs/image10 (1).png" alt="Imagem de fundo" class="main-image" />
 
   <!-- Painel direito com logo, input, botão e voltar -->
   <div class="right-panel">
-    <img src="logo-white-text.png" alt="Logo" class="logo" />
+    <img src="imgs/logo-white-text.png" alt="Logo" class="logo" />
 
-    <input type="text" placeholder="Digite seu CPF" class="cpf-input" />
+    <input type="text" placeholder="Digite seu CPF" class="cpf-input" id="cpf" required/>
 
-    <input type="text" placeholder="Digite seu Telefone" class="telefone-input" />
-
-    <button class="login-button">Login</button>
+    <button class="login-button" onclick="logar()">Login</button>
 
     <div class="voltar">
-      <img src="icon1.png" alt="Ícone voltar" />
-      <span>Voltar</span>
+      <a href="index.html">
+        <img src="imgs/icon1.png" alt="Ícone voltar" />
+        <span>Voltar</span>
+      </a>
+      
     </div>
   </div>
 
+  <script src="login.js"></script>
 </body>
 </html>
