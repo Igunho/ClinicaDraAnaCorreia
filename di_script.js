@@ -31,7 +31,6 @@ const pacienteInfo = {
 
 //Altera as informações a direita com as do paciente selecionado
 function selecionarPaciente(pacienteSelecionado) {
-  console.log(pacienteSelecionado.children[1].children[4].firstElementChild)
   pacienteInfo.container.hidden = false
   pacienteInfo.nome.textContent = pacienteSelecionado.children[1].firstElementChild.textContent
   pacienteInfo.telefone.textContent = pacienteSelecionado.children[1].children[3].children[1].textContent
