@@ -15,6 +15,7 @@ function selecionar(selecionado) {
     const divatual = selecionado //defne a div atual
 
     if(before){
+        before.classList.add("sel");
         before.style.backgroundColor='';
         before.style.inlineSize = '';
         before.style.fontWeight = '';
@@ -33,9 +34,8 @@ function selecionar(selecionado) {
         before = null;
 
     } else{
-        
-        divatual.style.backgroundColor = "lightblue";
-        divatual.style.inlineSize = "80%";
+        divatual.classList.remove("sel");
+        divatual.style.backgroundColor = "rgb(137, 233, 214)";
         divatual.style.fontWeight = "bold";
         divatual.style.borderRadius = "10px"
 

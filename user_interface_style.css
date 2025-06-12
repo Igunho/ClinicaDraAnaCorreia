@@ -54,6 +54,7 @@ body{
     z-index: -1;
 }
 main{
+    height: auto;
     display: grid;
     grid-template-columns: 1.5fr 3fr 1fr ;
 }
@@ -100,6 +101,9 @@ main{
         margin-left: 10px;
     }
 }
+.sel:hover{
+    inline-size: 90%
+}
 #inf{
     background-color: rgb(222, 255, 253);
     border: 20px solid rgb(137, 233, 214);
@@ -137,19 +141,42 @@ main{
         width: 80%;
     }
 }
+.vazio{
+    line-height: 70px;
+    opacity: 1;
+    animation-name: fadein;
+    animation-timing-function: ease-in;
+    animation-duration: 2s;
+    
+}
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.abba{
+    color: rgba(99, 215, 192, 1);
+    font-weight: bold;
+    
+}
+.icon{
+    width: 10%;
+}
 .elements{
-    margin: 10px 0px -10px 0px;
+    margin: 30px 0px -20px 0px;
     display: grid;
     grid-template-columns: 0.3fr 3fr;
+    line-height: 60%;
 }
 #img{
     margin: 0px 40px 0px 30px ;
     width: 80%;
     height: 87%;
     object-fit: cover;
-    /* opacity: 0.88; */
     border-radius: 20px;
-    box-shadow: 2px solid 5px black;
 }
 
 
