@@ -10,14 +10,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 </head>
-<body onload="atualizarHorario()" class="nunito-sans-regular" style="overflow: hidden;">
+<body onload="atualizarHorario()" class="nunito-sans-regular" style="overflow-y: hidden;">
     <nav class="topbar">
         <img src="imgs/logo-white-text.png" alt="Logo" style="justify-self: start;">
         <a href="index.html">Inicio</a>
         <p id="horario"></p>
     </nav>
 
-    <main>
+    <section id="novoAgendamento">
+        <h1>Agendamento</h1>
+        <p>Nome do cliente</p>
+        <input type="date" default="dd-mm-aaaa">
+        <div>
+            <button onclick="finalizarAgendamento(this.parentElement.parentElement.children[2])">AGENDAR</button>
+            <button onclick="cancelarAgendamento()">CANCELAR</button>
+        </div>
+    </section>
+
+    <section id="editar">
+        <h1>Editar Informações</h1>
+        <p>Nome do cliente</p>
+        <input type="text" placeholder="Nome">
+        <input type="text" placeholder="Data de Nascimento">
+        <input type="text" placeholder="Sexo">
+        <input type="text" placeholder="Endereço">
+        <input type="text" placeholder="Telefone Primário">
+        <input type="text" placeholder="Telefone Secundário">
+        <input type="text" placeholder="Email">
+        <textarea name="Anamnese" rows=15" cols="95%" placeholder="Anamnese"></textarea>
+        <div>
+            <button>Enviar</button>
+            <button onclick="cancelarAgendamento()">Cancelar</button>
+        </div>
+    </section>
+
+    <main id="main">
         <section id="consultas">
             <div id="search">
                 <input type="text" placeholder="Pesquisar" onfocusout="encerrarPesquisa()" onkeyup="pesquisar(this.value)">
@@ -39,12 +66,51 @@
                             <p>CicdCun@gmail.com</p>
                             <p>Este paciente tem tal tal e tal pq não sei oq lá, ocorreu os negócio</p>
                         </div>
+                        <div id="consultas" hidden>
+                            <table>
+                                <tr>
+                                    <td>23/02</td>
+                                    <td>14:05</td>
+                                    <td>Remoção de cáries</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Boleto</td>
+                                </tr>
+                                <tr>
+                                    <td>03/03</td>
+                                    <td>09:12</td>
+                                    <td>Limpeza</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Debito</td>
+                                </tr>
+                                <tr>
+                                    <td>19/04</td>
+                                    <td>14:05</td>
+                                    <td>Canal</td>
+                                    <td>R$ 80,00</td>
+                                    <td>Crédito</td>
+                                </tr>
+                                <tr>
+                                    <td>40/05</td>
+                                    <td>14:05</td>
+                                    <td>Remoção de cáries</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Dinheiro</td>
+                                </tr>
+                                <tr>
+                                    <td>23/02</td>
+                                    <td>19:24</td>
+                                    <td>Protese</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Pix</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div> 
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar" onclick="remarcar(this.parentElement.parentElement)">
                         <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" onclick=concluir(this.parentElement.parentElement)>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" onclick="agendar(this.parentElement.parentElement)" hidden>
                     </div>
                 </div>
                 <div class="item" id="fulano-da-silva" onclick="selecionarPaciente(this)"> 
@@ -61,12 +127,51 @@
                             <p>FulanoSilva54@gmail.com</p>
                             <p>Os dentes estão ruins porque ele não cuidou</p>
                         </div>
+                        <div id="consultas" hidden>
+                            <table>
+                                <tr>
+                                    <td>23/02</td>
+                                    <td>14:05</td>
+                                    <td>Remoção de cáries</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Boleto</td>
+                                </tr>
+                                <tr>
+                                    <td>03/03</td>
+                                    <td>09:12</td>
+                                    <td>Limpeza</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Debito</td>
+                                </tr>
+                                <tr>
+                                    <td>19/04</td>
+                                    <td>14:05</td>
+                                    <td>Canal</td>
+                                    <td>R$ 80,00</td>
+                                    <td>Crédito</td>
+                                </tr>
+                                <tr>
+                                    <td>40/05</td>
+                                    <td>14:05</td>
+                                    <td>Remoção de cáries</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Dinheiro</td>
+                                </tr>
+                                <tr>
+                                    <td>23/02</td>
+                                    <td>19:24</td>
+                                    <td>Protese</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Pix</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
-                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar" onclick="remarcar(this.parentElement.parentElement)">
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" onclick=concluir(this.parentElement.parentElement)>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" onclick="agendar(this.parentElement.parentElement)" hidden>
                     </div>
                 </div>
                 <div class="item" id="ciclana-ferreira" onclick="selecionarPaciente(this)"> 
@@ -83,12 +188,51 @@
                             <p>CiclanaFerreira23@gmail.com</p>
                             <p>Precisa de uma nova arcada dentaria</p>
                         </div>
+                        <div id="consultas" hidden>
+                            <table>
+                                <tr>
+                                    <td>23/02</td>
+                                    <td>14:05</td>
+                                    <td>Remoção de cáries</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Boleto</td>
+                                </tr>
+                                <tr>
+                                    <td>03/03</td>
+                                    <td>09:12</td>
+                                    <td>Limpeza</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Debito</td>
+                                </tr>
+                                <tr>
+                                    <td>19/04</td>
+                                    <td>14:05</td>
+                                    <td>Canal</td>
+                                    <td>R$ 80,00</td>
+                                    <td>Crédito</td>
+                                </tr>
+                                <tr>
+                                    <td>40/05</td>
+                                    <td>14:05</td>
+                                    <td>Remoção de cáries</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Dinheiro</td>
+                                </tr>
+                                <tr>
+                                    <td>23/02</td>
+                                    <td>19:24</td>
+                                    <td>Protese</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Pix</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
-                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar" onclick="remarcar(this.parentElement.parentElement)">
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" onclick=concluir(this.parentElement.parentElement)>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" onclick="agendar(this.parentElement.parentElement)" hidden>
                     </div>
                 </div>
             </div>
@@ -112,11 +256,50 @@
                             <p>Não tem dentes</p>
                         </div>
                     </div>
+                    <div id="consultas" hidden>
+                            <table>
+                                <tr>
+                                    <td>23/02</td>
+                                    <td>14:05</td>
+                                    <td>Remoção de cáries</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Boleto</td>
+                                </tr>
+                                <tr>
+                                    <td>03/03</td>
+                                    <td>09:12</td>
+                                    <td>Limpeza</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Debito</td>
+                                </tr>
+                                <tr>
+                                    <td>19/04</td>
+                                    <td>14:05</td>
+                                    <td>Canal</td>
+                                    <td>R$ 80,00</td>
+                                    <td>Crédito</td>
+                                </tr>
+                                <tr>
+                                    <td>40/05</td>
+                                    <td>14:05</td>
+                                    <td>Remoção de cáries</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Dinheiro</td>
+                                </tr>
+                                <tr>
+                                    <td>23/02</td>
+                                    <td>19:24</td>
+                                    <td>Protese</td>
+                                    <td>R$ 60,00</td>
+                                    <td>Pix</td>
+                                </tr>
+                            </table>
+                        </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
-                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar" onclick="remarcar(this.parentElement.parentElement)" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" onclick=concluir(this.parentElement.parentElement) hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" onclick="agendar(this.parentElement.parentElement)">
                     </div>
                 </div>
                 <div class="item" id="sicrano-oliveira" onclick="selecionarPaciente(this)"> 
@@ -136,9 +319,9 @@
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
-                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar" onclick="remarcar(this.parentElement.parentElement)" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" onclick=concluir(this.parentElement.parentElement) hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" onclick="agendar(this.parentElement.parentElement)">
                     </div>
                 </div>
                 <div class="item" id="sicrana-lima" onclick="selecionarPaciente(this)"> 
@@ -158,9 +341,9 @@
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
-                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar" onclick="remarcar(this.parentElement.parentElement)" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" onclick=concluir(this.parentElement.parentElement) hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" onclick="agendar(this.parentElement.parentElement)">
                     </div>
                 </div>
                 <div class="item" id="alice-beltrana-da-conceicao" onclick="selecionarPaciente(this)"> 
@@ -181,9 +364,9 @@
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
-                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Novo Agendamento">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar" onclick="remarcar(this.parentElement.parentElement)" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" onclick=concluir(this.parentElement.parentElement) hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" onclick="agendar(this.parentElement.parentElement)">
                     </div>
                 </div>
                 <div class="item" id="mario-fulano-mario" onclick="selecionarPaciente(this)"> 
@@ -203,9 +386,9 @@
                     </div>
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
-                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Novo Agendamento">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar" onclick="remarcar(this.parentElement.parentElement)" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" onclick=concluir(this.parentElement.parentElement) hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" onclick="agendar(this.parentElement.parentElement)">
                     </div>
                 </div>
                 <div class="item" id="Fulana-Cardoso" onclick="selecionarPaciente(this)"> 
@@ -225,27 +408,27 @@
                     </div> 
                     <div class="botoes-acao">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato"> <!-- Botão de ligação -->
-                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar">
-                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" hidden>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Remarcar" onclick="remarcar(this.parentElement.parentElement)" hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709510.png" alt="Concluir" onclick=concluir(this.parentElement.parentElement) hidden>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png " alt="Novo Agendamento" onclick="agendar(this.parentElement.parentElement)">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="paciente" >
+        <section id="paciente" hidden>
             <div id="header">
                 <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="https://cdn-icons-png.flaticon.com/512/456/456212.png" style="grid-row: 1 / span 2;">
                 <h3 style="grid-row: 1 / span 1; grid-column: 2 / span 2;">Nome do Paciente</h3>
                 <p style="font-weight: 300; grid-row: 2 / span 1; justify-self: center">Telefone</p> 
                 <img src="https://cdn-icons-png.flaticon.com/512/25/25453.png" alt="Contato" style="width: 5%; grid-row: 2 / span 1;" class="clickable"> <!-- Botão de contato -->
-                <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Editar" style="grid-row: 1 / span 2; width: 60;" class="clickable"> <!-- Editar informações -->
+                <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Editar" style="grid-row: 1 / span 2; width: 60;" class="clickable" onclick="editarInfo(this.parentElement.children[1].textContent)" hidden> <!-- Editar informações -->
             </div>
             <div id="pdetalhes">
                 <div id="pheader">
                     <button class="clickable" id="selected" onclick="selecionarAba(this)">INFORMAÇÕES</button>
                     <button class="clickable" onclick="selecionarAba(this)">TRATAMENTOS</button>
-                    <button class="clickable" onclick="selecionarAba(this)">ORÇAMENTO</button>
+                    <!-- <button class="clickable" onclick="selecionarAba(this)" hidden>ORÇAMENTO</button> -->
                 </div>
                 <div id="info">
                     <p>Data de Nascimento: </p>
@@ -262,7 +445,15 @@
                     <textarea name="Anamnese" id="anamnese" rows="20" cols="95%" readonly></textarea>
                 </div>
                 <div id="tratamentos" hidden>
-                    está é a seção de tratamentos
+                    <table>
+                        <tr>
+                            <th>Dia</th>
+                            <th>Hora</th>
+                            <th>Tratamento</th>
+                            <th>Valor</th>
+                            <th>Forma</th>
+                        </tr>
+                    </table>
                 </div>
                 <div id="orcamento" hidden>
                     está é a seção de orçamento

@@ -25,22 +25,28 @@ const pacienteInfo = {
   telefonePrimario:document.getElementById("info").children[3].children[0],
   telefoneSecundario:document.getElementById("info").children[3].children[1],
   email:document.getElementById("info").children[3].children[2],
-  anamnese:document.getElementById("info").children[4]
+  anamnese:document.getElementById("info").children[4],
+  consultas:document.getElementById("tratamentos").firstElementChild
 }
 
 //Altera as informações a direita com as do paciente selecionado
 function selecionarPaciente(pacienteSelecionado) {
+  console.log(pacienteSelecionado.children[1].children[4].firstElementChild)
   pacienteInfo.container.hidden = false
   pacienteInfo.nome.textContent = pacienteSelecionado.children[1].firstElementChild.textContent
-  pacienteInfo.telefone.textContent = pacienteSelecionado.children[1].lastElementChild.children[1].textContent
+  pacienteInfo.telefone.textContent = pacienteSelecionado.children[1].children[3].children[1].textContent
 
-  pacienteInfo.nascimento.textContent = "Data de Nascimento: " + pacienteSelecionado.children[1].lastElementChild.children[0].textContent
-  pacienteInfo.genero.textContent = "Sexo: " + pacienteSelecionado.children[1].lastElementChild.children[3].textContent
-  pacienteInfo.endereco.textContent = "Endereço: " + pacienteSelecionado.children[1].lastElementChild.children[4].textContent
-  pacienteInfo.telefonePrimario.textContent = "Telefone Primário: " + pacienteSelecionado.children[1].lastElementChild.children[1].textContent
-  pacienteInfo.telefoneSecundario.textContent = "Telefone Secundário: " + pacienteSelecionado.children[1].lastElementChild.children[2].textContent
-  pacienteInfo.email.textContent = "Email: " + pacienteSelecionado.children[1].lastElementChild.children[5].textContent
-  pacienteInfo.anamnese.textContent = pacienteSelecionado.children[1].lastElementChild.children[6].textContent
+  pacienteInfo.nascimento.textContent = "Data de Nascimento: " + pacienteSelecionado.children[1].children[3].children[0].textContent
+  pacienteInfo.genero.textContent = "Sexo: " + pacienteSelecionado.children[1].children[3].children[3].textContent
+  pacienteInfo.endereco.textContent = "Endereço: " + pacienteSelecionado.children[1].children[3].children[4].textContent
+  pacienteInfo.telefonePrimario.textContent = "Telefone Primário: " + pacienteSelecionado.children[1].children[3].children[1].textContent
+  pacienteInfo.telefoneSecundario.textContent = "Telefone Secundário: " + pacienteSelecionado.children[1].children[3].children[2].textContent
+  pacienteInfo.email.textContent = "Email: " + pacienteSelecionado.children[1].children[3].children[5].textContent
+  pacienteInfo.anamnese.textContent = pacienteSelecionado.children[1].children[3].children[6].textContent
+
+  for(let i = 0; i < 3; i++) {
+    pacienteInfo.consultas.appendChild(pacienteSelecionado.children[1].children[4].firstElementChild.children[i])
+  }
 }
 
 //Declara objetos e variáveis que serão utilizadas recorrentemente
@@ -132,10 +138,57 @@ function selecionarAba(selecao) {
   }
 }
 
+const abaAgendamento = document.getElementById("novoAgendamento")
 //Conclui um agendamento
 function concluir(paciente) {
   console.log(paciente)
-  paciente.children[1].children[2].hidden = true
-  paciente.children[1].children[3].hidden = false
+  paciente.children[2].children[2].hidden = true
+  paciente.children[2].children[3].hidden = false
   historico.insertBefore(paciente, historico.children[0])
+}
+function agendar(paciente) {
+  abaAgendamento.style.visibility = "visible"
+  abaAgendamento.children[1].textContent = paciente.children[1].firstElementChild.textContent
+  document.getElementById("main").classList.add("popup")
+}
+function cancelarAgendamento() {
+  document.getElementById("novoAgendamento").style.visibility = "hidden"
+  document.getElementById("editar").style.visibility = "hidden"
+  document.getElementById("main").classList.remove("popup")
+}
+function finalizarAgendamento(data) {
+  const agendamento = data.value.split("-")
+  const dia = agendamento[2]; let mes = agendamento[1]; let ano = agendamento[0]
+  const dataAtual = new Date(); const dataInput = new Date(data.value)
+  let paciente
+
+  if(dataInput.getTime() > dataAtual.getTime()) {
+    for(let i = 0; i < itens.length; i++) {
+      if(itens[i].children[1].firstElementChild.textContent == abaAgendamento.children[1].textContent) {
+        itens[i].children[1].children[2].textContent = dia+"/"+mes+"/"+ano
+        itens[i].children[2].children[3].hidden = true
+        itens[i].children[2].children[2].hidden = false
+        lista.appendChild(itens[i])
+
+        cancelarAgendamento()
+      }
+    } 
+  } else {
+    window.alert("Invalido: data para nova consulta/remarcação é anterior a atual")
+  }
+}
+function remarcar(paciente) {
+  agendar(paciente)
+}
+function editarPopup(selecao) {
+  for(let i = 0; i < itens.length; i++) {
+    if(itens[i].children[1].firstElementChild.textContent == selecao) {
+      const paciente = itens[i]
+    }
+  }
+
+  document.getElementById("editar").style.visibility = "visible"
+}
+function editarInfo(paciente) {
+  editarPopup(paciente)
 }
