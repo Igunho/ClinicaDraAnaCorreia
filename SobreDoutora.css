@@ -1,0 +1,387 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Nunito Sans", sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      background-color: #37D8B8;
+      z-index: 500;
+    }
+    header a {
+        margin-left: 20px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+    }
+    #botaologin {
+        width: 24px;
+        height: 24px;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #botaologin {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    }
+
+    nav img {
+      height: 130px;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 300;
+      font-size: 14px;
+    }
+      nav a:hover{
+      font-weight: 700;
+    }
+    .sobre {
+      text-align: center;
+      margin: 60px 0 40px;
+    }
+    .sobre h2 {
+      margin-top: 150px;
+      font-size: 24px;
+      color: #37D8B8;
+      position: relative;
+      display: inline-block;
+    }
+    .sobre h2::before,
+    .sobre h2::after {
+     content: "";
+     position: absolute;
+     top: 50%;
+     width: 140px; 
+     height: 2px;
+     background: #00b5ad;
+    }
+    .sobre h2::before {
+      right: 100%;
+      margin-right: 20px;
+    }
+    .sobre h2::after {
+      left: 100%;
+      margin-left: 20px;
+    }
+    .bloco-destaque {
+      background-color: #c4f1fb;
+        max-width: 600px;
+        margin: 0 auto 40px;
+         padding: 20px;
+         border-radius: 8px;
+         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+         text-align: center;
+         font-weight: 600;
+         color: #0c768e;
+        font-size: 18px;
+    }
+    .conteudo-dra {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 40px;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .foto-box-carrossel {
+      position: relative;
+      width: 300px;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 10px;
+      background-color: #dbe7ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .foto-box-carrossel img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .foto-box-carrossel img.foto-visivel {
+      opacity: 1;
+      position: relative;
+    }
+    .btn-anterior, .btn-proximo {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+    .btn-anterior {
+      left: 10px;
+    }
+    .btn-proximo {
+      right: 10px;
+    }
+    .foto-box {
+      background-color: #dbe7ff;
+      border-radius: 10px;
+      width: 300px;
+      height: 250px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-weight: bold;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .foto-box::before {
+      content: "‹";
+      position: absolute;
+      left: 10px;
+      font-size: 20px;
+    }
+    .foto-box::after {
+      content: "›";
+      position: absolute;
+      right: 10px;
+      font-size: 20px;
+    }
+    .texto-dra {
+      flex: 1;
+      font-size: 16px;
+      color: #0CC0DF;
+      text-align: justify;
+      line-height: 1.6;
+    }
+    .divisoria {
+        width: 85%;
+        height: 2px; 
+        background-color: #0CC0DF;
+        margin: 80px auto;
+    }
+    .clinica {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .clinica h2 {
+      font-size: 20px;
+      color: #00b5ad;
+    }
+    .clinica-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+  gap: 40px;
+}
+.clinica-conteudo .texto {
+  flex: 1;
+}
+.clinica-conteudo .texto p {
+  font-size: 18px;
+  color: #0CC0DF;
+  line-height: 1.6;
+}
+.foto-clinica {
+  width: 350px;
+  height: 280px;
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+.procedimentos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 30px;
+}
+.procedimento-card {
+  width: 220px;
+  height: 260px;
+  background-color: #f1f1f1;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.procedimento-card:hover {
+  transform: translateY(-5px);
+}
+
+.procedimento-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.procedimento-card span {
+  padding: 10px;
+  font-weight: 600;
+  color: #333;
+}
+.info-final {
+  background-color: #29d4b0;
+  color: white;
+  padding: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.info-textos {
+  flex: 1;
+  min-width: 250px;
+}
+.info-textos h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.info-textos p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.mapa {
+  width: 350px;
+  height: 220px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+  font-weight: 600;
+  font-size: 18px;
+}
+.info-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.linha-vertical {
+  width: 2px;
+  background-color: white;
+  height: 220px;
+  opacity: 0.5;
+  border-radius: 1px;
+  align-self: center;
+  margin: 0 10px;
+}
+.rodape {
+  background-color: #0c768e; 
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+}
+.faixa-info-final {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  font-family: 'Nunito', sans-serif;
+  flex-wrap: wrap;
+}
+.info-esquerda p {
+  margin: 4px 0;
+  color: #333;
+  font-size: 16px;
+}
+.redes-direita {
+  display: flex;
+  gap: 16px;
+}
+h4{
+    font-size: 18px;
+    color: #0991a9;
+    line-height: 1.6;
+}
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.whatsapp-float:hover {
+  background-color: #1ebe5d;
+}
+.icones-sociais {
+  display: flex;
+  gap: 15px;
+}
+.icone-social {
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  text-decoration: none;
+  font-size: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.icone-social:hover {
+  background-color: #aaa;
+  color: white;
+}
+#clinicaImg{
+  width: 100%;     
+  max-width: 600px; 
+  height: 130%;     
+  border-radius: 10px; 
+  display: block;
+  margin: 0 auto;   
+}
