@@ -1,6 +1,5 @@
 body{
-    overflow-x: hidden;
-    overflow-y: hidden;
+
 }
 .font { /* Fonte */
   font-family: "Nunito Sans", sans-serif;
@@ -178,6 +177,7 @@ main{
     object-fit: cover;
     border-radius: 20px;
 }
+
 
 
 
