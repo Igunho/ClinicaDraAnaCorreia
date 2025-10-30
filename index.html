@@ -1,39 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Dr. Ana Correia Odontologia</title>
     <link rel="icon" type="image/x-icon" href="imgs/icon.png">
-    <link rel="stylesheet" href="tela_inicial.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+    </style>
 </head>
-<body>
-    <header id="topo">
-      <nav class=menu>
-        <a href="#"><img src="imgs/logo-branca.png" alt="Logo da Empresa" id="logo"></a>
+<body class="nunito-sans">
+  <header class="navbar">  <!-- Header -->
+      <nav>
+        <a href="index.html"><img src="imgs/logo-white-text.png" alt="Logo da Empresa" id="logo"></a>
         <a href="#">HOME</a>
-        <a href="#doutora">SOBRE NÓS</a>
+        <a href="SobreDoutora.html">SOBRE NÓS</a>
         <a href="serviços.html">SERVIÇOS</a>
         <a href="#contato">CONTATO</a>
         <a href="login.html"><img src="imgs/iconuser.png" id="botaologin"></a>
       </nav>
-    </header>
+  </header>
 
     <main>
       <!-- PRIMEIRA SEÇÃO: APRESENTAÇÃO -->
-        <section id="apresentacao">
-          <div class="apresentacao">
-            <img src="imgs/imagemapresentacao.jpg" alt="Imagem de Apresentação" class="imgapresentacao">
+        <section class="apresentacao">
+            <img src="imgs/imagemapresentacao.jpg" alt="Imagem de Apresentação">
             <div class="textoapresentacao">
               <h1>Clínica Dra. Ana Correia Odontologia</h1>
               <hr>
               <p>Com mais de 23 anos de experiência em odontologia, a Clínica Dr. Ana Correia se dedica a transformar vidas através de sorrisos saudáveis, bonitos e confiantes. Agende agora mesmo a sua avaliação e dê o primeiro passo rumo ao cuidado que você merece.</p>
               <a aria-label="Chat no WhatsApp" href="https://wa.me/13997988150" target="_blank" class="button">AGENDAR</a>
             </div>
-          </div>
         </section>
 
       <!-- SEGUNDA SEÇÃO: CARROSSEL DE PROCEDIMENTOS--> 
@@ -123,10 +121,10 @@
     </main>
 
     <footer>
-         <!-- Botão WhatsApp -->
-           <section>
+        <!-- Botão WhatsApp -->
+        <section>
             <a aria-label="Chat no WhatsApp" href="https://wa.me/13997988150" target="_blank">
-                <img alt="Chat no WhatsApp" src="imgs/iconewhats.png" class="imgwhatsapp">
+                <img alt="Chat no WhatsApp" src="" class="imgwhatsapp">
             </a>
         </section>
       <div class="rodape-container">

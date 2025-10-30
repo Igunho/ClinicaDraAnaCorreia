@@ -1,0 +1,82 @@
+.nunito-sans {
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100,
+      "YTLC" 500;
+}
+
+body { /* Sem esse bloco o header não usa toda área da página */
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar { /* Padrão para barra de navegação/header */
+    background-color: #37D8B8;
+    & nav { 
+        margin-inline: 10%; /* Cria uma espaço entre os itens do header e os cantos da página */
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+    } & a { 
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+    } & a:hover {
+        font-weight:800;
+    }
+}
+
+/* PRIMEIRA SEÇÃO: APRESENTAÇÃO */
+.apresentacao{
+    display: block;
+    text-align: center;
+    margin: 20px;
+    & h1 {
+        text-align: center;
+        color:rgba(1, 54, 50, 0.856); 
+    } & p {
+        font-size:18px;
+        font-weight: 500;
+        max-width: 800px;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 1.6;
+        color:rgba(1, 54, 50, 0.856); 
+    } & img {
+        display: inline-block; 
+        width: 15%; 
+        vertical-align: middle; 
+        margin-right: 20px; 
+        border-radius: 50%;
+    }
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #012e2e;
+    width: 70%;
+}
+
+.textoapresentacao {
+display: inline-block; 
+width: 50%;
+vertical-align: middle; 
+text-align: justify; 
+padding: 10px;  
+}
+
+.button {
+    width:100px;
+    border: none; 
+    color: white;
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    background-color:#0CC0DF;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+}
